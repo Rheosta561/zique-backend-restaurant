@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Restaurant</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+</head>
+<body class="bg-gray-100">
+  <div class="container mx-auto p-8">
+    <h1 class="text-3xl font-bold text-center mb-6">Add Restaurant</h1>
+    <form action="/add-restaurant" method="POST" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="name">Restaurant Name</label>
+        <input type="text" name="name" id="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700" placeholder="Enter restaurant name" required>
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="ratings">Ratings</label>
+        <input type="number" name="ratings" id="ratings" step="0.1" min="0" max="5" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700" placeholder="Enter ratings (0-5)" required>
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="cuisine">Cuisine</label>
+        <input type="text" name="cuisine" id="cuisine" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700" placeholder="Enter cuisine type" required>
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="address">Address</label>
+        <textarea name="address" id="address" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700" placeholder="Enter address" required></textarea>
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="dateTime">Date and Time</label>
+        <input type="datetime-local" name="dateTime" id="dateTime" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700" required>
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="price">Price</label>
+        <input type="text" name="price" id="price" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700" placeholder="Enter price range" required>
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="phone">Phone</label>
+        <input type="number" name="phone" id="phone" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700" placeholder="Enter phone number" required>
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="food">Food Items</label>
+        <input type="text" name="food" id="food" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700" placeholder="Enter food items (comma separated)" required>
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="ambience">Ambience</label>
+        <input type="text" name="ambience" id="ambience" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700" placeholder="Enter ambience descriptions (comma separated)" required>
+      </div>
+
+      <!-- New Fields -->
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="menu">Menu</label>
+        <input type="text" name="menu" id="menu" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700" placeholder="Enter menu description or URL" required>
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="profileImage">Profile Image</label>
+        <input type="text" name="profileImage" id="profileImage" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700" placeholder="Enter profile image URL" required>
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="chatbot">Chatbot</label>
+        <input type="text" name="chatbot" id="chatbot" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700" placeholder="Enter chatbot description or URL" required>
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="location">Location</label>
+        <input type="text" name="location" id="location" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700" placeholder="Enter restaurant location" required>
+      </div>
+      <!-- End New Fields -->
+
+      <div class="flex items-center justify-between">
+        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Submit</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
