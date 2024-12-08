@@ -1,14 +1,14 @@
 const mongoose = require('mongoose');
 
 const restaurantSchema = new mongoose.Schema({
-  name: { type: String, required: true },
+  name:{ type: String, required: true },
   ratings: { type: Number, min: 0, max: 5, required: true },
   cuisine: { type: String, required: true },
   address: { type: String, required: true },
-  dateTime: { type: Date, required: false },
+  dateTime: { type: Date, required: false }, // Optional field for date and time
   price: { type: String, required: true },
   phone: {
-    type: Number,
+    type: String, // Changed from Number to String
     required: true,
     validate: {
       validator: function (v) {
@@ -22,7 +22,7 @@ const restaurantSchema = new mongoose.Schema({
   menu: { type: String, required: false }, // Menu link or description
   profileImage: { type: String, required: false }, // URL of the restaurant's profile image
   chatbot: { type: String, required: false }, // Chatbot link or description
-  location: { type: String, required: true } // New Location field
+  location: { type: String, required: true } // Location field (required)
 });
 
 module.exports = mongoose.model('Restaurant', restaurantSchema);
