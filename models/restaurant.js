@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
-
 const restaurantSchema = new mongoose.Schema({
-  name:{ type: String, required: true },
+  name: { type: String, required: true },
   ratings: { type: Number, min: 0, max: 5, required: true },
   cuisine: { type: String, required: true },
   address: { type: String, required: true },
@@ -22,7 +21,8 @@ const restaurantSchema = new mongoose.Schema({
   menu: { type: String, required: false }, // Menu link or description
   profileImage: { type: String, required: false }, // URL of the restaurant's profile image
   chatbot: { type: String, required: false }, // Chatbot link or description
-  location: { type: String, required: true } // Location field (required)
+  location: { type: String, required: true }, // Location field (required)
+  timings: { type: String, required: true } // Newly added field
 });
 
 module.exports = mongoose.model('Restaurant', restaurantSchema);

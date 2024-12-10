@@ -21,15 +21,15 @@
     <% if (restaurants && restaurants.length > 0) { %>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <% restaurants.forEach(restaurant => { %>
-          <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="bg-white p-6 rounded-lg shadow-md overflow-hidden ">
             <h2 class="text-xl font-semibold text-blue-600"><%= restaurant.name %></h2>
             <p><strong>Ratings:</strong> <%= restaurant.ratings %></p>
             <p><strong>Cuisine:</strong> <%= restaurant.cuisine %></p>
             <p><strong>Address:</strong> <%= restaurant.address %></p>
             <p><strong>Phone:</strong> <%= restaurant.phone %></p>
-            <p><strong>Food:</strong> <%= restaurant.food.join(', ') %></p>
+            <p class=""><strong>Food:</strong> <%= restaurant.food.join(', ') %></p>
             <p><strong>Ambience:</strong> <%= restaurant.ambience.join(', ') %></p>
-            <p><strong>Date and Time:</strong> <%= new Date(restaurant.dateAndTime).toLocaleString() %></p>
+            <p><strong>Timings:</strong> <%= restaurant.timings %></p>
             <p><strong>Price:</strong> <%= restaurant.price %></p>
             <a href="/restaurants/<%= restaurant._id %>" class="text-blue-600 hover:underline mt-4 inline-block">View Details</a>
           </div>

@@ -52,11 +52,12 @@ app.post('/add-restaurant', async (req, res) => {
       menu,
       profileImage,
       chatbot,
-      location
+      location,
+      timings 
     } = req.body;
 
     // Validation for required fields
-    if (!name || !ratings || !cuisine || !address) {
+    if (!name || !ratings || !cuisine || !address || !timings) {
       return res.status(400).send("Missing required fields");
     }
 
@@ -68,12 +69,13 @@ app.post('/add-restaurant', async (req, res) => {
       dateAndTime,
       price,
       phone,
-      food: food.split(','), // Convert comma-separated food items to an array
+      food: food.split(','), 
       ambience: ambience.split(','), // Convert comma-separated ambience descriptions to an array
       menu,
       profileImage,
       chatbot,
-      location // Assign the location field
+      location,
+      timings 
     });
 
     const savedRestaurant = await newRestaurant.save();
@@ -83,6 +85,7 @@ app.post('/add-restaurant', async (req, res) => {
     res.status(500).send("Error adding restaurant.");
   }
 });
+
 
 app.get('/api/:name', async (req, res) => {
   const name = req.params.name;
