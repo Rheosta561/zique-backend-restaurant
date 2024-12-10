@@ -92,21 +92,84 @@ app.get('/api/:name', async (req, res) => {
   console.log("Searching for restaurant with name:", name);  // Debugging line
   
   try {
-    // Find restaurant with the given name
     const restaurant = await Restaurant.findOne({ name: name });
-
-    // Check if restaurant is found and send appropriate response
     if (restaurant.length === 0) {
       return res.status(404).send({ message: "Restaurant not found" });
     }
     
-    // Send the found restaurant data as response
+
     res.json(restaurant);
   } catch (error) {
     console.error("Error fetching restaurant:", error.message);
     res.status(500).send({ message: "Error fetching restaurant" });
   }
 });
+app.get('/update-restaurant/:id', async (req, res) => {
+  try {
+    const restaurant = await Restaurant.findById(req.params.id);
+    if (!restaurant) {
+      return res.status(404).send("Restaurant not found");
+    }
+    res.render('updateRestaurant', { restaurant });
+  } catch (error) {
+    console.error("Error fetching restaurant for update:", error.message);
+    res.status(500).send("Error fetching restaurant for update.");
+  }
+});
+
+// Route to handle POST request for updating the restaurant details
+app.post('/update-restaurant/:id', async (req, res) => {
+  try {
+    const {
+      name,
+      ratings,
+      cuisine,
+      address,
+      dateAndTime,
+      price,
+      phone,
+      food,
+      ambience,
+      menu,
+      profileImage,
+      chatbot,
+      location,
+      timings 
+    } = req.body;
+
+    // Validate required fields
+    if (!name || !ratings || !cuisine || !address || !timings) {
+      return res.status(400).send("Missing required fields");
+    }
+
+    const updatedRestaurant = await Restaurant.findByIdAndUpdate(
+      req.params.id, 
+      {
+        name,
+        ratings,
+        cuisine,
+        address,
+        dateAndTime,
+        price,
+        phone,
+        food: food.split(','),  // Convert comma-separated values to an array
+        ambience: ambience.split(','), // Convert comma-separated values to an array
+        menu,
+        profileImage,
+        chatbot,
+        location,
+        timings
+      },
+      { new: true }  // Return the updated restaurant
+    );
+
+    res.redirect('/');  // Redirect to the list of restaurants
+  } catch (error) {
+    console.error("Error updating restaurant:", error.message);
+    res.status(500).send("Error updating restaurant.");
+  }
+});
+
 
 
 

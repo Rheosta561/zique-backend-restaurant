@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Update Restaurant</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+</head>
+<body class="bg-gray-100">
+  <div class="container mx-auto p-8">
+    <h1 class="text-3xl font-bold text-center mb-6">Update Restaurant</h1>
+    <form action="/update-restaurant/<%= restaurant._id %>" method="POST" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      
+      <!-- Populate form fields with existing restaurant data -->
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="name">Restaurant Name</label>
+        <input type="text" name="name" id="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700" placeholder="Enter restaurant name" value="<%= restaurant.name %>" required>
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="ratings">Ratings</label>
+        <input type="number" name="ratings" id="ratings" step="0.1" min="0" max="5" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700" placeholder="Enter ratings (0-5)" value="<%= restaurant.ratings %>" required>
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="cuisine">Cuisine</label>
+        <input type="text" name="cuisine" id="cuisine" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700" placeholder="Enter cuisine type" value="<%= restaurant.cuisine %>" required>
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="address">Address</label>
+        <textarea name="address" id="address" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700" placeholder="Enter address" required><%= restaurant.address %></textarea>
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="timings">Timings</label>
+        <input type="text" name="timings" id="timings" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700" placeholder="Enter timings (e.g., 10:00 AM - 10:00 PM)" value="<%= restaurant.timings %>" required>
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="price">Price</label>
+        <input type="text" name="price" id="price" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700" placeholder="Enter price range" value="<%= restaurant.price %>" required>
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="phone">Phone</label>
+        <input type="number" name="phone" id="phone" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700" placeholder="Enter phone number" value="<%= restaurant.phone %>" required>
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="food">Food Items</label>
+        <input type="text" name="food" id="food" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700" placeholder="Enter food items (comma separated)" value="<%= restaurant.food.join(', ') %>" required>
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="ambience">Ambience</label>
+        <input type="text" name="ambience" id="ambience" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700" placeholder="Enter ambience descriptions (comma separated)" value="<%= restaurant.ambience.join(', ') %>" required>
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="menu">Menu</label>
+        <input type="text" name="menu" id="menu" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700" placeholder="Enter menu description or URL" value="<%= restaurant.menu %>" required>
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="profileImage">Profile Image</label>
+        <input type="text" name="profileImage" id="profileImage" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700" placeholder="Enter profile image URL" value="<%= restaurant.profileImage %>" required>
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="chatbot">Chatbot</label>
+        <input type="text" name="chatbot" id="chatbot" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700" placeholder="Enter chatbot description or URL" value="<%= restaurant.chatbot %>" required>
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="location">Location</label>
+        <input type="text" name="location" id="location" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700" placeholder="Enter restaurant location" value="<%= restaurant.location %>" required>
+      </div>
+
+      <div class="flex items-center justify-between">
+        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Update Restaurant</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
