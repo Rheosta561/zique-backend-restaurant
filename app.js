@@ -35,6 +35,18 @@ app.get('/', async (req, res) => {
     res.status(500).send("Error fetching restaurants.");
   }
 });
+app.get('/findAll', async(req,res)=>{
+  try {
+    const allRestaurants= await Restaurant.find();
+    res.status(200).json(allRestaurants);
+    
+  } catch (error) {
+    return res.status(404).json({
+      error:error.message
+    });
+    
+  }
+});
 
 // Route to handle POST request for adding a restaurant (for admin usage)
 app.post('/add-restaurant', async (req, res) => {

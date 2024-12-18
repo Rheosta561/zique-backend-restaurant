@@ -1,4 +1,4 @@
-require('dotenv').config(); // Ensure dotenv is loaded
+require('dotenv').config(); 
 const mongoose = require('mongoose');
 
 const mongoURI = process.env.MONGO_URI;
